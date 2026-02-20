@@ -1,4 +1,13 @@
- clc;clear;close all;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Before running this code, you will need the following:
+%   - Combustion Toolbox - Alberto Cuadra Lara
+%   - Optimization Toolbox
+%   - Symbolic Math Toolbox (depricated)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+clc;clear;close all;
 
 %For the following, nozzle exit is treated as section '2' and turbine exit is
 %treated as '1'
