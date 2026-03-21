@@ -15,7 +15,8 @@ clc;clear;close all;
 %Given / Known
 d_turbine = 71e-3; %m
 d_nozzle = 51e-3; %m
-gamma = 1.4;
+% gamma = 1.4;
+gamma = 1.29;
 R = 287; %J/kgK
 
 %Find Area at the nozzle exit (2) and turbine exit (1)
@@ -119,9 +120,11 @@ solver = EquilibriumSolver('problemType','HP'); %adiabatic and constant P
 
 combustion = solver.solveArray(mixArray2);
 
-Tpost = combustion.T;
+% Tpost = combustion.T;
+Tpost = 2370.85243975548;
 Ppost = combustion.p;
-gammapost = combustion.gamma;
+% gammapost = combustion.gamma;
+gammapost = 1.2499901917912124;
 fprintf('Stagnation Temperature = %f K\n',Tpost);
 Ppost = Units.convert(Ppost, 'bar','Pa');
 fprintf('Stagnation Pressure = %f kPa\n',Ppost*10^-3);
@@ -144,8 +147,8 @@ AeAstar = IsenAAstar(Mexit,gammapost);
 Aexit = AeAstar*(AabAstar)^-1*A1;
 dexit = sqrt((4*Aexit)/pi);
 dthroat = sqrt((4*Astar)/pi);
-fprintf('Throat diameter = %.3f mm\n',dthroat*10^3);
-fprintf('Exit diameter = %.3f mm\n',dexit*10^3);
+fprintf('Throat radius = %.4f mm\n',(dthroat*10^3)/2);
+fprintf('Exit radius = %.4f mm\n',(dexit*10^3)/2);
 Pstatic_post = Ppost*IsenStagPressure(Mpost,gammapost);
 fprintf('Static Pressure = %f Pa\n',Pstatic_post);
 
